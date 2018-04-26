@@ -32,23 +32,29 @@
 ---
 ### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how I addressed each one.  I submit my writeup as markdown.  
+#### 1. Provide a Writeup / README that includes all the rubric points and how I addressed each one. I submit my writeup as markdown.  
 
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data I have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
 
-#### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on my test data using the `moviepy` functions provided to create video output of my result. the output video is included in the `output` folder of this submission.
+#### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on my test data using the `moviepy` functions provided to create video output of my result. The output video is included in the `output` folder of this submission.
 
 ### Autonomous Navigation and Mapping
 
 #### 1. Fill in the `perception_step()` (at the bottom of the `perception.py` script) and `decision_step()` (in `decision.py`) 
 
+`perception_step()` is a faithful replica of `process_imag()` , except that proper `Rover`properties are called (such as `Rover.img`, `Rover.worldmap`, and `Rover.vision_image`)  
 
-#### 2. Launching in autonomous mode my rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
+In `perception_step()`, I also introduced two additional functions, `color_thresh_obstacles` and `color_thresh_rock`, to perceive non-navigable terrain and rock samples.
+
+In `decision_step()`, I added in an addition If statement for picking up rock samples:
+
+if Rover.near_sample and not Rover.picking_up:
+        Rover.brake = 1
+        Rover.send_pickup = True
 
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
+#### 2. Launching in autonomous mode my rover can navigate and map autonomously. It can also pick up samples when in the proximity of a rock. 
 
 
 **Note: In the autonomous mode, I used screen resolution of `1024 by 768`, and graphgics quality `good`.
