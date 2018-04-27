@@ -5,7 +5,6 @@ Ray Tang
 
 ---
 
-
 **The goals / steps of this project are the following:**  
 
 The goals of the project is to navigate a rover in autonomous mode, and search and retrieve as many golden rocks (up to 6 in each run) as possible.
@@ -43,6 +42,16 @@ The goals of the project is to navigate a rover in autonomous mode, and search a
 
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data I have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
+
+I added two functions to select obstacles (`color_thresh_obstacles`) and rock samples (`color_thresh_rock`). 
+
+The selected pixels for obstacles is simply an inversion of navigable terrain, assuming the two are mutually exclusive and collectively exhaustive, which is largely true here. Accordingly, I define threshold as: 
+
+above_thresh = (img[:,:,0] < rgb_thresh[0]) | (img[:,:,1] < rgb_thresh[1]) | (img[:,:,2] < rgb_thresh[2])  
+
+THe selected pixels for golden rocks were determined by examining RGB values of a rock at `.\calibration_images/example_rock2.jpg` in an interactive matplotlib session. From there, threshold was defined as:
+
+above_thresh = (img[:,:,0] < 210) & (img[:,:,0] > 140) & (img[:,:,1] < 180) & (img[:,:,1] > 110) & (img[:,:,2] < 30)
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on my test data using the `moviepy` functions provided to create video output of my result. The output video is included in the `output` folder of this submission.
 
