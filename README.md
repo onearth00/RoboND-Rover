@@ -45,11 +45,13 @@ I added two functions to select obstacles (`color_thresh_obstacles`) and rock sa
 
 The selected pixels for obstacles is simply an inversion of navigable terrain, assuming the two are mutually exclusive and collectively exhaustive, which is largely true here. Accordingly, I define threshold as: 
 
-above_thresh = (img[:,:,0] < rgb_thresh[0]) | (img[:,:,1] < rgb_thresh[1]) | (img[:,:,2] < rgb_thresh[2])  
+`above_thresh = (img[:,:,0] < rgb_thresh[0]) | (img[:,:,1] < rgb_thresh[1]) | (img[:,:,2] < rgb_thresh[2])`
+
+where `rgb_thresh=(160, 160, 160)`
 
 THe selected pixels for golden rocks were determined by examining RGB values of a rock at `.\calibration_images/example_rock2.jpg` in an interactive matplotlib session. From there, threshold was defined as:
 
-above_thresh = (img[:,:,0] < 210) & (img[:,:,0] > 140) & (img[:,:,1] < 180) & (img[:,:,1] > 110) & (img[:,:,2] < 30)
+`above_thresh = (img[:,:,0] < 210) & (img[:,:,0] > 140) & (img[:,:,1] < 180) & (img[:,:,1] > 110) & (img[:,:,2] < 30)`
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on my test data using the `moviepy` functions provided to create video output of my result. The output video is included in the `output` folder of this submission.
 
