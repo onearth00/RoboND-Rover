@@ -63,11 +63,11 @@ In `perception_step()`, I also introduced two additional functions, `color_thres
 
 In `decision_step()`, I added in an addition If statement for retrieving rock samples:
 
-if Rover.near_sample and not Rover.picking_up:          `when Rover is in the proximity of a rock and is not in the pickup mode'
+        if Rover.near_sample and not Rover.picking_up:   
+
+                Rover.brake = 1
         
-        Rover.brake = 1
-        
-        Rover.send_pickup = True
+                Rover.send_pickup = True
           
 #### 2. Launching in autonomous mode my rover can navigate and map autonomously. It can also pick up samples when in the proximity of a rock. 
 
