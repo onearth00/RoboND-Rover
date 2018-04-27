@@ -8,13 +8,15 @@ Ray Tang
 
 **The goals / steps of this project are the following:**  
 
+The goals of the project is to navigate a rover in autonomous mode, and search and retrieve as many golden rocks (up to 6 in each run) as possible.
+
 **Training / Calibration**  
 
 * Download the simulator and take data in "Training Mode"
 * Test out the functions in the Jupyter Notebook provided
 * Add functions to detect obstacles and samples of interest (golden rocks)
-* Fill in the `process_image()` function with the appropriate image processing steps (perspective transform, color threshold etc.) to get from raw images to a map.  The `output_image` you create in this step should demonstrate that your mapping pipeline works.
-* Use `moviepy` to process the images in your saved dataset with the `process_image()` function.  Include the video you produce as part of your submission.
+* Fill in the `process_image()` function with the appropriate image processing steps (perspective transform, color threshold etc.) to get from raw images to a map.  The `output_image`  in this step demonstrate that the mapping pipeline works.
+* Use `moviepy` to process the images in the saved dataset with the `process_image()` function.  Include the output video as part of the submission.
 
 **Autonomous Navigation / Mapping**
 
@@ -22,7 +24,7 @@ Ray Tang
 
 * Fill in the `decision_step()` function within the `decision.py` script with conditional statements that take into consideration the outputs of the `perception_step()` in deciding how to issue throttle, brake and steering commands. 
 
-* Iterate on your perception and decision function until your rover does a reasonable (need to define metric) job of navigating and mapping.  
+* Iterate on the perception and decision function until the rover does a reasonable (need to define metric) job of navigating and mapping.  
 
 [//]: # (Image References)
 
