@@ -28,8 +28,6 @@ The goals of the project is to navigate a rover in autonomous mode, and search a
 [//]: # (Image References)
 
 [image1]: ./output/pickrock.png
-[image2]: ./calibration_images/example_grid1.jpg
-[image3]: ./calibration_images/example_rock1.jpg 
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
@@ -63,16 +61,17 @@ above_thresh = (img[:,:,0] < 210) & (img[:,:,0] > 140) & (img[:,:,1] < 180) & (i
 
 In `perception_step()`, I also introduced two additional functions, `color_thresh_obstacles` and `color_thresh_rock`, to perceive non-navigable terrain and rock samples.
 
-In `decision_step()`, I added in an addition If statement for picking up rock samples:
+In `decision_step()`, I added in an addition If statement for retrieving rock samples:
 
-if Rover.near_sample and not Rover.picking_up:
+if Rover.near_sample and not Rover.picking_up:          `when Rover is in the proximity of a rock and is not in the pickup mode'
+        
         Rover.brake = 1
+        
         Rover.send_pickup = True
           
-![alt text][image1]
-
 #### 2. Launching in autonomous mode my rover can navigate and map autonomously. It can also pick up samples when in the proximity of a rock. 
 
+![alt text][image1]
 
 **Note: In the autonomous mode, I used screen resolution of `1024 by 768`, and graphgics quality `good`.
 
