@@ -22,7 +22,7 @@
 
 [//]: # (Image References)
 
-[image1]: /Users/ray/Desktop/pickrock.png
+[image1]: ./output/pickrock.png
 [image2]: ./calibration_images/example_grid1.jpg
 [image3]: ./calibration_images/example_rock1.jpg 
 
@@ -53,10 +53,8 @@ In `decision_step()`, I added in an addition If statement for picking up rock sa
 if Rover.near_sample and not Rover.picking_up:
         Rover.brake = 1
         Rover.send_pickup = True
-        
-        
+          
 ![alt text][image1]
-
 
 #### 2. Launching in autonomous mode my rover can navigate and map autonomously. It can also pick up samples when in the proximity of a rock. 
 
