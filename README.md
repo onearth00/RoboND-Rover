@@ -27,7 +27,11 @@ The goals of the project is to navigate a rover in autonomous mode, and search a
 
 [//]: # (Image References)
 
-[image1]: ./output/pickrock.png
+[image1]: ./initial.png
+[image2]: ./pick.png
+[image3]: ./place.png
+[image4]: ./drop.png
+
 
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
